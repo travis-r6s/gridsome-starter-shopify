@@ -4,13 +4,14 @@
     role="navigation"
     aria-label="main navigation">
     <div class="navbar-brand">
-      <a
+      <g-link
+        to="/"
         class="navbar-item"
         href="https://bulma.io">
         <img
           src="../favicon.png"
           alt="Gridsome Logo">
-      </a>
+      </g-link>
 
       <a
         role="button"
@@ -23,13 +24,11 @@
 
     <div class="navbar-menu">
       <div class="navbar-start">
-        <a class="navbar-item">
+        <g-link
+          to="/"
+          class="navbar-item">
           Home
-        </a>
-
-        <a class="navbar-item">
-          Collections
-        </a>
+        </g-link>
       </div>
 
       <div class="navbar-end">
