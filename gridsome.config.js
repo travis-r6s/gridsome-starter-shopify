@@ -4,7 +4,7 @@ module.exports = {
     {
       use: '@gridsome/source-graphql',
       options: {
-        url: `https://${process.env.SHOPIFY_STOREFRONT}.myshopify.com/api/2019-07/graphql`,
+        url: `https://${process.env.SHOPIFY_STOREFRONT}.myshopify.com/api/2019-07/graphql.json`,
         fieldName: 'shopify',
         typeName: 'shopifyTypes',
         headers: {
