@@ -8,9 +8,9 @@ module.exports = {
         fieldName: 'shopify',
         typeName: 'shopifyTypes',
         headers: {
-          'X-Shopify-Storefront-Access-Token': process.env.SHOPIFY_STOREFRONT_TOKEN,
-        },
-      },
+          'X-Shopify-Storefront-Access-Token': process.env.SHOPIFY_STOREFRONT_TOKEN
+        }
+      }
     }
   ]
 }
