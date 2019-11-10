@@ -7,6 +7,7 @@ import '~/styles/main.scss'
 
 import ApolloClient from 'apollo-boost'
 import VueApollo from 'vue-apollo'
+import fetch from 'isomorphic-fetch'
 
 export default function (Vue, { appOptions }) {
   // Set default layout as a global component
@@ -14,7 +15,8 @@ export default function (Vue, { appOptions }) {
   Vue.use(Vuex)
   Vue.use(VueApollo)
 
-  const apolloClient = new ApolloClient({
+  const apolloClient = new ApolloClient( {
+    fetch,
     uri: `https://${process.env.GRIDSOME_SHOPIFY_STOREFRONT}.myshopify.com/api/2019-07/graphql.json`,
     headers: {
       'X-Shopify-Storefront-Access-Token': process.env.GRIDSOME_SHOPIFY_STOREFRONT_TOKEN
