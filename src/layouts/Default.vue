@@ -1,7 +1,9 @@
 <template>
   <div class="container-fluid">
     <Navbar />
-    <slot />
+    <section class="section">
+      <slot />
+    </section>
   </div>
 </template>
 
