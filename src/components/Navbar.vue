@@ -33,9 +33,17 @@
 
       <div class="navbar-end">
         <a class="navbar-item">
-          Cart
+          Cart - {{ cart.length }} Items
         </a>
       </div>
     </div>
   </nav>
 </template>
+
+<script>
+export default {
+  computed: {
+    cart () { return this.$store.state.cart }
+  }
+}
+</script>
