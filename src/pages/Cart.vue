@@ -36,22 +36,87 @@
           </tr>
         </tbody>
       </table>
+      <br>
+      <form @submit.prevent="checkout">
+        <div class="field is-grouped is-grouped-right">
+          <div class="field has-addons">
+            <div class="control">
+              <label
+                for="email"
+                class="label">
+                <input
+                  id="email"
+                  v-model="email"
+                  class="input"
+                  type="email"
+                  placeholder="Your email address"
+                  required>
+              </label>
+            </div>
+            <div class="control">
+              <button
+                :class="{'is-loading': isLoading}"
+                type="submit"
+                class="button is-info">
+                Checkout
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
     </div>
   </Layout>
 </template>
 
 <script>
 import currency from 'currency.js'
+import gql from 'graphql-tag'
 export default {
   metaInfo: {
     title: 'Your Cart'
   },
+  data: () => ({ email: '', isLoading: false }),
   computed: {
     cart () { return this.$store.state.cart }
   },
   methods: {
     totalPrice ({ qty, price }) {
       return currency(price.amount, { formatWithSymbol: true, symbol: '£' }).multiply(qty).format()
+    },
+    async checkout () {
+      const email = this.email
+      if (!this.cart.length) return alert('No items in cart')
+      const lineItems = this.cart.map(item => ({ quantity: item.qty, variantId: item.variantId }))
+
+      const checkoutInput = { email, lineItems }
+
+      try {
+        this.isLoading = true
+        const { data: { checkoutCreate } } = await this.$apollo.mutate({
+          mutation: gql`mutation checkoutCreate($input: CheckoutCreateInput!) {
+            checkoutCreate(input: $input) {
+              checkout {
+                id
+                webUrl
+              }
+              checkoutUserErrors {
+                code
+                field
+                message
+              }
+            }
+          }
+          `,
+          variables: { input: checkoutInput }
+        })
+        if (checkoutCreate.checkoutUserErrors.length) throw new Error(checkoutCreate.checkoutUserErrors[ 0 ].message)
+
+        window.location = checkoutCreate.checkout.webUrl
+      } catch (error) {
+        this.isLoading = false
+        console.error(error)
+        alert('Something went wrong.')
+      }
     }
   }
 }
