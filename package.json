@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@gridsome/source-graphql": "^0.1.0",
+    "@storefront-ui/vue": "^0.3.3",
     "gridsome": "^0.7.10"
   },
   "devDependencies": {
@@ -20,6 +21,8 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
     "eslint-plugin-vue": "^5.2.3",
-    "eslint-plugin-vue-a11y": "^0.0.31"
+    "eslint-plugin-vue-a11y": "^0.0.31",
+    "node-sass": "^4.13.0",
+    "sass-loader": "^8.0.0"
   }
 }
