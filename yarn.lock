@@ -2747,6 +2747,11 @@ csstype@^2.2.0:
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.6.7.tgz#20b0024c20b6718f4eda3853a1f5a1cce7f5e4a5"
   integrity sha512-9Mcn9sFbGBAdmimWb2gLVDtFJzeKtDGIr76TUqmjZrw9LFXBMSU70lcs+C0/7fyCd6iBDqmksUcCOUIkisPHsQ==
 
+currency.js@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/currency.js/-/currency.js-1.2.2.tgz#ae84daf68798051097ad3feb2d022ad08994f526"
+  integrity sha512-trMkXtHpIFq2P+PcSml3La/jpwo8shy2Xn/b5mBXoJhx3E4m3wBbdjS8eHy/DWgYKaEUH8EXPC6yomFx+zumww==
+
 currently-unhandled@^0.4.1:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/currently-unhandled/-/currently-unhandled-0.4.1.tgz#988df33feab191ef799a61369dd76c17adf957ea"
