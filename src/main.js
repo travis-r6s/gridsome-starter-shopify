@@ -16,7 +16,7 @@ export default function (Vue, { appOptions }) {
     },
     mutations: {
       addToCart: (state, newItem) => {
-        const itemExists = state.cart.find(item => item.id === newItem.id)
+        const itemExists = state.cart.find(item => item.variantId === newItem.variantId)
 
         if (itemExists) itemExists.qty += newItem.qty
         else state.cart.push(newItem)
