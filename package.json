@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@gridsome/source-graphql": "^0.1.0",
-    "@storefront-ui/vue": "^0.3.3",
+    "bulma": "^0.8.0",
     "gridsome": "^0.7.10"
   },
   "devDependencies": {
