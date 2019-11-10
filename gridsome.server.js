@@ -8,10 +8,7 @@ module.exports = function (api) {
   api.loadSource(async ({ addCollection }) => {
     // Use the Data Store API here: https://gridsome.org/docs/data-store-api
 
-    addCollection({
-      typeName: 'Product',
-      route: 'products/:handle' // add this for one dynamic route...
-    })
+    addCollection({ typeName: 'Product' })
   })
 
   api.createPages(async ({ graphql, createPage }) => {

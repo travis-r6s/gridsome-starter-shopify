@@ -1,5 +1,13 @@
 module.exports = {
   siteName: 'Gridsome + Shopify 😍',
+  templates: {
+    Product: [
+      {
+        path: `/products/:handle`,
+        component: './src/templates/ShopifyProduct.vue'
+      }
+    ]
+  },
   plugins: [
     {
       use: '@gridsome/source-graphql',
