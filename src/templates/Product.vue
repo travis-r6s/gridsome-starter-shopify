@@ -34,7 +34,10 @@
             class="content" />
           <div class="field is-grouped is-grouped-left">
             <div class="control">
-              <button class="button is-primary">
+              <button
+                @click="addToCart(variant)"
+                @keyup.enter="addToCart(variant)"
+                class="button is-primary">
                 Add To Cart
               </button>
             </div>
@@ -59,6 +62,14 @@ export default {
   methods: {
     formatCurrency ({ currencyCode, amount }) {
       return new Intl.NumberFormat('en-GB', { style: 'currency', currency: currencyCode }).format(amount)
+    },
+    addToCart (variant) {
+      const payload = {
+        qty: 1,
+        variantId: variant.id
+      }
+      this.$store.commit('addToCart', payload)
+      alert('Added Item To cart')
     }
   }
 }
