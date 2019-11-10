@@ -5,11 +5,23 @@ import DefaultLayout from '~/layouts/Default.vue'
 import Vuex from 'vuex'
 import '~/styles/main.scss'
 
+import ApolloClient from 'apollo-boost'
+import VueApollo from 'vue-apollo'
+
 export default function (Vue, { appOptions }) {
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout)
   Vue.use(Vuex)
+  Vue.use(VueApollo)
 
+  const apolloClient = new ApolloClient({
+    uri: `https://${process.env.GRIDSOME_SHOPIFY_STOREFRONT}.myshopify.com/api/2019-07/graphql.json`
+  })
+  const apolloProvider = new VueApollo({
+    defaultClient: apolloClient
+  })
+
+  appOptions.apolloProvider = apolloProvider
   appOptions.store = new Vuex.Store({
     state: {
       cart: []
