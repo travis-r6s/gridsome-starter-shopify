@@ -66,7 +66,9 @@ export default {
     addToCart (variant) {
       const payload = {
         qty: 1,
-        variantId: variant.id
+        variantId: variant.id,
+        price: variant.priceV2.amount,
+        image: variant.image
       }
       this.$store.commit('addToCart', payload)
       alert('Added Item To cart')
@@ -101,6 +103,11 @@ query Product ($handle: String!) {
             priceV2 {
               amount
               currencyCode
+            }
+            image {
+              id
+              altText
+              thumbnail: transformedSrc(maxWidth: 150, maxHeight: 150, crop: CENTER)
             }
           }
         }
