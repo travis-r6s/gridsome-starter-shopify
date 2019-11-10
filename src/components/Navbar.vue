@@ -32,9 +32,11 @@
       </div>
 
       <div class="navbar-end">
-        <a class="navbar-item">
+        <g-link
+          to="/cart"
+          class="navbar-item">
           Cart - {{ cart.length }} Items
-        </a>
+        </g-link>
       </div>
     </div>
   </nav>
