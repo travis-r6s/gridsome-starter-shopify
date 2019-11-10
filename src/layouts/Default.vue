@@ -16,10 +16,3 @@ query {
   }
 }
 </static-query>
-
-<script>
-import { SfHeader } from '@storefront-ui/vue'
-export default {
-  components: { SfHeader }
-}
-</script>
