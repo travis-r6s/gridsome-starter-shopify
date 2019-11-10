@@ -1,18 +1,13 @@
 <template>
-  <div class="layout">
-    <SfHeader>
-      <template slot-name="middle">
-        logo
-      </template>
-    </SfHeader>
+  <div class="container-fluid">
+    <Navbar />
     <slot />
   </div>
 </template>
 
-<static-query>
-query {
-  metadata {
-    siteName
-  }
+<script>
+import Navbar from '@/components/Navbar'
+export default {
+  components: { Navbar }
 }
-</static-query>
+</script>
