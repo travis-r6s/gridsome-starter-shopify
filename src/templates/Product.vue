@@ -67,7 +67,7 @@ export default {
       const payload = {
         qty: 1,
         variantId: variant.id,
-        price: variant.priceV2.amount,
+        price: variant.priceV2,
         image: variant.image
       }
       this.$store.commit('addToCart', payload)
