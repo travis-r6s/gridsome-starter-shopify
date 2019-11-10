@@ -15,7 +15,10 @@ export default function (Vue, { appOptions }) {
   Vue.use(VueApollo)
 
   const apolloClient = new ApolloClient({
-    uri: `https://${process.env.GRIDSOME_SHOPIFY_STOREFRONT}.myshopify.com/api/2019-07/graphql.json`
+    uri: `https://${process.env.GRIDSOME_SHOPIFY_STOREFRONT}.myshopify.com/api/2019-07/graphql.json`,
+    headers: {
+      'X-Shopify-Storefront-Access-Token': process.env.GRIDSOME_SHOPIFY_STOREFRONT_TOKEN
+    }
   })
   const apolloProvider = new VueApollo({
     defaultClient: apolloClient
