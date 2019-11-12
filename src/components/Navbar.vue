@@ -30,7 +30,7 @@
           Home
         </g-link>
         <g-link
-          to="/"
+          to="/collections"
           class="navbar-item">
           Collections
         </g-link>
