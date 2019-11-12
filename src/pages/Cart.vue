@@ -2,7 +2,7 @@
   <Layout>
     <div class="hero">
       <div class="hero-body">
-        <div class="container">
+        <div class="container has-text-centered">
           <h3 class="title">
             Cart
           </h3>
@@ -17,6 +17,7 @@
             <th>Product</th>
             <th>Quantity</th>
             <th>Total</th>
+            <th />
           </tr>
         </thead>
         <tbody>
@@ -30,14 +31,27 @@
                   :alt="item.image.altText || item.title">
               </figure>
             </td>
-            <td>{{ item.title }}</td>
+            <td>
+              {{ item.productTitle }}
+              {{ item.variantTitle !== 'Default Title' ? `- ${item.variantTitle}` : '' }}
+            </td>
             <td>{{ item.qty }}</td>
             <td>{{ totalPrice(item) }}</td>
+            <td width="50">
+              <button
+                @click="removeItem(item.variantId)"
+                @keyup="removeItem(item.variantId)"
+                class="delete is-danger">
+                <small>Remove</small>
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>
       <br>
-      <form @submit.prevent="checkout">
+      <form
+        v-if="cart.length"
+        @submit.prevent="checkout">
         <div class="field is-grouped is-grouped-right">
           <div class="field has-addons">
             <div class="control">
@@ -57,13 +71,22 @@
               <button
                 :class="{'is-loading': isLoading}"
                 type="submit"
-                class="button is-info">
+                class="button is-primary">
                 Checkout
               </button>
             </div>
           </div>
         </div>
       </form>
+      <div class="container has-text-centered">
+        <p>To checkout, add some items to cart.</p>
+        <br>
+        <g-link
+          to="/"
+          class="button is-primary is-outlined">
+          Browse
+        </g-link>
+      </div>
     </div>
   </Layout>
 </template>
@@ -82,6 +105,14 @@ export default {
   methods: {
     totalPrice ({ qty, price }) {
       return currency(price.amount, { formatWithSymbol: true, symbol: '£' }).multiply(qty).format()
+    },
+    async removeItem (itemId) {
+      console.log(itemId)
+      await this.$store.commit('removeFromCart', itemId)
+      this.$notify({
+        title: 'Item removed from cart',
+        type: 'primary'
+      })
     },
     async checkout () {
       const email = this.email
@@ -115,9 +146,19 @@ export default {
       } catch (error) {
         this.isLoading = false
         console.error(error)
-        alert('Something went wrong.')
+        this.$notify({
+          title: 'Whoops...',
+          type: 'danger',
+          message: 'Something went wrong - please try again.'
+        })
       }
     }
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.input {
+  height: 50px !important;
+}
+</style>
