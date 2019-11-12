@@ -23,7 +23,7 @@
           </div>
         </div>
         <div class="column is-two-fifths">
-          <h3 class="title">
+          <h3 class="title is-family-secondary">
             {{ product.title }}
           </h3>
           <h5 class="subtitle">
