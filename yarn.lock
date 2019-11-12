@@ -8924,6 +8924,16 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
+typeface-karla@^0.0.72:
+  version "0.0.72"
+  resolved "https://registry.yarnpkg.com/typeface-karla/-/typeface-karla-0.0.72.tgz#b0eec7f2f13e638d274c0bac6bd0c82379c958e9"
+  integrity sha512-PKqhkf7MxnRMCdWfLXYsY2eGY3R9aGO630P5CCXnndvmfTlEGgXtb6J6kx1UDcCgzNh115Cd0IP5AnFU8cCpKw==
+
+typeface-prata@^0.0.72:
+  version "0.0.72"
+  resolved "https://registry.yarnpkg.com/typeface-prata/-/typeface-prata-0.0.72.tgz#644785665231ca604253201d5be466e5dfcb8420"
+  integrity sha512-yZAPOaZ/7pXzqolAuRNqKjaVum02IwQdLZf58Xr6oRZFsk27Uqigyf/fN4BLoUwltN0lxKm2vaKO1VjSj2/NIw==
+
 uglify-js@3.4.x:
   version "3.4.10"
   resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.4.10.tgz#9ad9563d8eb3acdfb8d38597d2af1d815f6a755f"
