@@ -7,7 +7,7 @@
       <g-link
         to="/"
         class="navbar-item"
-        href="https://bulma.io">
+        href="https://gridsome.org/">
         <img
           src="../favicon.png"
           alt="Gridsome Logo">
