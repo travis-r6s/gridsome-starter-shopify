@@ -95,7 +95,7 @@ module.exports = function (api) {
       data.shopify.collections.edges.forEach(({ node, cursor }) => {
         // TODO: Attach these as a ContentType, instead of creating new pages
         createPage({
-          path: `/collections/${node.handle}`,
+          path: `/collection/${node.handle}`,
           component: './src/templates/Collection.vue',
           context: {
             id: node.id,

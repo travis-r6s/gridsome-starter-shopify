@@ -31,7 +31,7 @@
               <div class="field is-grouped is-grouped-centered">
                 <div class="control">
                   <g-link
-                    :to="`collections/${collection.handle}`"
+                    :to="`collection/${collection.handle}`"
                     class="button is-white-ter">
                     Browse
                   </g-link>
