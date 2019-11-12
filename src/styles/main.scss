@@ -1,3 +1,6 @@
 @import "./variables";
 @import "./custom";
-@import "~bulma/bulma.sass";
+@import "bulma/bulma";
+
+// Plugins
+@import "./notification"

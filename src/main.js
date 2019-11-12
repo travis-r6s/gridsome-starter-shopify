@@ -7,6 +7,7 @@ import DefaultLayout from '~/layouts/Default.vue'
 // Plugins
 import Vuex from 'vuex'
 import VueApollo from 'vue-apollo'
+import Notifications from 'vue-notification/dist/ssr.js'
 
 // Dependencies
 import ApolloClient from 'apollo-boost'
@@ -23,6 +24,7 @@ export default function (Vue, { appOptions }) {
   // Import global plugins
   Vue.use(Vuex)
   Vue.use(VueApollo)
+  Vue.use(Notifications)
 
   // Create Apollo client
   const apolloClient = new ApolloClient({

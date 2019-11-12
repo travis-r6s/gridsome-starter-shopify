@@ -18,6 +18,7 @@
     "typeface-karla": "^0.0.72",
     "typeface-prata": "^0.0.72",
     "vue-apollo": "^3.0.0",
+    "vue-notification": "^1.3.20",
     "vuex": "^3.1.2"
   },
   "devDependencies": {

@@ -1,5 +1,6 @@
 <template>
   <div class="container-fluid">
+    <notifications />
     <Navbar />
     <section class="section">
       <slot />

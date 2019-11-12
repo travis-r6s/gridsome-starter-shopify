@@ -120,7 +120,7 @@ export default {
     formatCurrency ({ currencyCode, amount }) {
       return new Intl.NumberFormat('en-GB', { style: 'currency', currency: currencyCode }).format(amount)
     },
-    addToCart () {
+    async addToCart () {
       const variant = this.currentVariant
       const payload = {
         qty: this.quantity,
@@ -130,8 +130,10 @@ export default {
         price: variant.priceV2,
         image: variant.image
       }
-      this.$store.commit('addToCart', payload)
-      alert('Added Item To cart')
+      await this.$store.commit('addToCart', payload)
+      this.$notify({
+        title: `Added ${payload.productTitle} to Cart`
+      })
     }
   }
 }
