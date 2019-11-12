@@ -54,6 +54,10 @@ export default function (Vue, { appOptions }) {
 
         if (itemExists) itemExists.qty += newItem.qty
         else state.cart.push(newItem)
+      },
+      removeFromCart: (state, itemId) => {
+        const updatedCart = state.cart.filter(item => item.id !== itemId)
+        state.cart = updatedCart
       }
     }
   })
