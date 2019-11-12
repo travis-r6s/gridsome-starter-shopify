@@ -78,7 +78,9 @@
           </div>
         </div>
       </form>
-      <div class="container has-text-centered">
+      <div
+        v-else
+        class="container has-text-centered">
         <p>To checkout, add some items to cart.</p>
         <br>
         <g-link
