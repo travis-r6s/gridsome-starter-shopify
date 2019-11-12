@@ -1,6 +1,8 @@
 <template>
   <Layout>
-    <div class="hero is-large">
+    <div
+      v-if="collection"
+      class="hero is-large">
       <div class="container">
         <div class="columns">
           <div class="column is-two-fifths header">
@@ -88,7 +90,7 @@ export default {
     title: 'Come, shop!'
   },
   computed: {
-    collection () { return this.$page.shopify.collections.edges[ 0 ].node }
+    collection () { return this.$page.shopify.collections.edges.length && this.$page.shopify.collections.edges[ 0 ].node }
   },
   methods: {
     formatCurrency ({ currencyCode, amount }) {

@@ -6,7 +6,12 @@
       </h1>
       <hr>
       <br>
-      <div class="columns is-multiline">
+      <p v-if="!collections.length">
+        No collections available.
+      </p>
+      <div
+        v-if="collections.length"
+        class="columns is-multiline">
         <div
           v-for="({ node: collection }) in collections"
           :key="collection.id"
