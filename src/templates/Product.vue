@@ -14,7 +14,7 @@
               v-for="({ node: image }) in product.images.edges"
               :key="image.id"
               class="column is-3">
-              <figure class="image is-4by3">
+              <figure class="image is-square">
                 <img
                   :src="image.thumbnail"
                   :alt="image.altText || product.title">
