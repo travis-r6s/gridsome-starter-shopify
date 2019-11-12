@@ -8,3 +8,5 @@ You will need to add your Storefront API shop name (https://\<shop-name\>.myshop
 GRIDSOME_SHOPIFY_STOREFRONT=<shop name>
 GRIDSOME_SHOPIFY_STOREFRONT_TOKEN=<storefront token>
 ```
+
+You will also need to add some collections in Shopify for this starter to work correctly.
