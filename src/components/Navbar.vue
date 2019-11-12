@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="navbar"
+    class="navbar container is-spaced"
     role="navigation"
     aria-label="main navigation">
     <div class="navbar-brand">
@@ -29,13 +29,28 @@
           class="navbar-item">
           Home
         </g-link>
+        <g-link
+          to="/"
+          class="navbar-item">
+          Collections
+        </g-link>
+        <g-link
+          to="/"
+          class="navbar-item">
+          Contact
+        </g-link>
+        <g-link
+          to="/"
+          class="navbar-item">
+          About
+        </g-link>
       </div>
 
       <div class="navbar-end">
         <g-link
           to="/cart"
           class="navbar-item">
-          Cart - {{ cart.length }} Items
+          Cart - {{ cart.length }} Item{{ cart.length !== 1 ? 's' : '' }}
         </g-link>
       </div>
     </div>
