@@ -56,7 +56,7 @@ export default function (Vue, { appOptions }) {
         else state.cart.push(newItem)
       },
       removeFromCart: (state, itemId) => {
-        const updatedCart = state.cart.filter(item => item.id !== itemId)
+        const updatedCart = state.cart.filter(item => item.variantId !== itemId)
         state.cart = updatedCart
       }
     }
