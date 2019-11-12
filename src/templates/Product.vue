@@ -123,7 +123,9 @@ export default {
     addToCart () {
       const variant = this.currentVariant
       const payload = {
-        qty: 1,
+        qty: this.quantity,
+        productTitle: this.product.title,
+        variantTitle: variant.title,
         variantId: variant.id,
         price: variant.priceV2,
         image: variant.image
