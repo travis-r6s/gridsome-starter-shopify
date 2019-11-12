@@ -69,7 +69,7 @@
                   id="quantity"
                   v-model.number="quantity"
                   class="input quantity"
-                  type="text"
+                  type="number"
                   placeholder="Find a repository">
               </div>
               <div class="add-to-cart">
