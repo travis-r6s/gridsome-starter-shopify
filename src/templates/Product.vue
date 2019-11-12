@@ -113,7 +113,6 @@ export default {
     }
   },
   created () {
-    console.log(this.productOptions)
     const [firstVariant] = this.variants
     this.selectedOptions = firstVariant.selectedOptions.reduce((options, { name, value }) => ({ [ name ]: value, ...options }), {})
   },

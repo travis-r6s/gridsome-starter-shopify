@@ -109,7 +109,6 @@ export default {
       return currency(price.amount, { formatWithSymbol: true, symbol: '£' }).multiply(qty).format()
     },
     async removeItem (itemId) {
-      console.log(itemId)
       await this.$store.commit('removeFromCart', itemId)
       this.$notify({
         title: 'Item removed from cart',
