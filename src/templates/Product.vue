@@ -132,7 +132,8 @@ export default {
       }
       await this.$store.commit('addToCart', payload)
       this.$notify({
-        title: `Added ${payload.productTitle} to Cart`
+        title: `Added ${payload.productTitle} to Cart`,
+        type: 'primary'
       })
     }
   }
