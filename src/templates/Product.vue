@@ -101,7 +101,7 @@ export default {
   }),
   computed: {
     product () { return this.$page.shopify.product },
-    productoptions () { return this.product.options.filter(({ title }) => title !== 'title')},
+    productOptions () { return this.product.options.filter(({ name }) => name !== 'Title') },
     variants () { return this.product.variants.edges.map(({ node: variant }) => variant) },
     currentVariant () {
       const matchedVariant = this.variants.find(variant =>
@@ -113,6 +113,7 @@ export default {
     }
   },
   created () {
+    console.log(this.productOptions)
     const [firstVariant] = this.variants
     this.selectedOptions = firstVariant.selectedOptions.reduce((options, { name, value }) => ({ [ name ]: value, ...options }), {})
   },
