@@ -2,7 +2,7 @@
   <Layout>
     <div class="container">
       <div class="columns">
-        <div class="column is-half">
+        <div class="column is-three-fifths">
           <figure class="image">
             <img
               :src="product.images.edges[0].node.src"
@@ -22,24 +22,64 @@
             </div>
           </div>
         </div>
-        <div class="column is-half">
+        <div class="column is-two-fifths">
           <h3 class="title">
             {{ product.title }}
           </h3>
           <h5 class="subtitle">
-            {{ formatCurrency(variant.priceV2) }}
+            {{ formatCurrency(currentVariant.priceV2) }}
           </h5>
           <div
             v-html="product.descriptionHtml"
             class="content" />
-          <div class="field is-grouped is-grouped-left">
+          <div
+            v-for="option in productOptions"
+            :key="option.id"
+            class="field">
             <div class="control">
-              <button
-                @click="addToCart(variant)"
-                @keyup.enter="addToCart(variant)"
-                class="button is-primary">
-                Add To Cart
-              </button>
+              <label
+                :for="option.name"
+                class="label">
+                {{ option.name }}
+                <div class="select is-fullwidth">
+                  <select
+                    :id="option.name"
+                    v-model="selectedOptions[option.name]">
+                    <option
+                      v-for="value in option.values"
+                      :key="value"
+                      :value="value">
+                      {{ value }}
+                    </option>
+                  </select>
+                </div>
+              </label>
+            </div>
+          </div>
+          <br>
+          <div class="field is-grouped is-grouped-right">
+            <div class="field has-addons is-fullwidth">
+              <div class="control">
+                <label
+                  class="label"
+                  for="quantity">
+                  Quantity
+                </label>
+                <input
+                  id="quantity"
+                  v-model.number="quantity"
+                  class="input quantity"
+                  type="text"
+                  placeholder="Find a repository">
+              </div>
+              <div class="add-to-cart">
+                <button
+                  @click="addToCart"
+                  @keyup.enter="addToCart"
+                  class="button is-primary">
+                  Add To Cart
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -55,15 +95,33 @@ export default {
       title: this.$page.shopify.product.title
     }
   },
+  data: () => ({
+    selectedOptions: {},
+    quantity: 1
+  }),
   computed: {
     product () { return this.$page.shopify.product },
-    variant () { return this.product.variants.edges[ 0 ].node }
+    productoptions () { return this.product.options.filter(({ title }) => title !== 'title')},
+    variants () { return this.product.variants.edges.map(({ node: variant }) => variant) },
+    currentVariant () {
+      const matchedVariant = this.variants.find(variant =>
+        variant.selectedOptions.every(
+          ({ name, value }) => value === this.selectedOptions[ name ]
+        )
+      )
+      return matchedVariant
+    }
+  },
+  created () {
+    const [firstVariant] = this.variants
+    this.selectedOptions = firstVariant.selectedOptions.reduce((options, { name, value }) => ({ [ name ]: value, ...options }), {})
   },
   methods: {
     formatCurrency ({ currencyCode, amount }) {
       return new Intl.NumberFormat('en-GB', { style: 'currency', currency: currencyCode }).format(amount)
     },
-    addToCart (variant) {
+    addToCart () {
+      const variant = this.currentVariant
       const payload = {
         qty: 1,
         variantId: variant.id,
@@ -95,6 +153,11 @@ query Product ($handle: String!) {
           }
         }
       }
+      options {
+        id
+        name
+        values
+      }
       variants(first: 10) {
         edges {
           node {
@@ -103,6 +166,10 @@ query Product ($handle: String!) {
             priceV2 {
               amount
               currencyCode
+            }
+            selectedOptions {
+              name
+              value
             }
             image {
               id
@@ -116,3 +183,20 @@ query Product ($handle: String!) {
   }
 }
 </page-query>
+
+<style lang="scss" scoped>
+.is-fullwidth {
+  width: 100%;
+  .control {
+    width: 100%;
+  }
+}
+.quantity {
+  width: 100%;
+  height: 50px;
+}
+.add-to-cart {
+  display: flex;
+  align-items: flex-end;
+}
+</style>
