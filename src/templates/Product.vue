@@ -5,8 +5,8 @@
         <div class="column is-three-fifths">
           <figure class="image">
             <img
-              :src="product.images.edges[0].node.src"
-              :alt="product.images.edges[0].node.altText || product.title">
+              :src="product.images[0].src"
+              :alt="product.images[0].altText || product.title">
           </figure>
           <br>
           <div class="columns">
@@ -27,7 +27,7 @@
             {{ product.title }}
           </h3>
           <h5 class="subtitle">
-            {{ formatCurrency(currentVariant.priceV2) }}
+            {{ formatCurrency(currentVariant.price) }}
           </h5>
           <div
             v-html="product.descriptionHtml"
@@ -92,7 +92,7 @@
 export default {
   metaInfo () {
     return {
-      title: this.$page.shopify.product.title
+      title: this.$page.shopifyProduct.title
     }
   },
   data: () => ({
@@ -100,11 +100,10 @@ export default {
     quantity: 1
   }),
   computed: {
-    product () { return this.$page.shopify.product },
+    product () { return this.$page.shopifyProduct },
     productOptions () { return this.product.options.filter(({ name }) => name !== 'Title') },
-    variants () { return this.product.variants.edges.map(({ node: variant }) => variant) },
     currentVariant () {
-      const matchedVariant = this.variants.find(variant =>
+      const matchedVariant = this.product.variants.find(variant =>
         variant.selectedOptions.every(
           ({ name, value }) => value === this.selectedOptions[ name ]
         )
@@ -113,7 +112,7 @@ export default {
     }
   },
   created () {
-    const [firstVariant] = this.variants
+    const [firstVariant] = this.product.variants
     this.selectedOptions = firstVariant.selectedOptions.reduce((options, { name, value }) => ({ [ name ]: value, ...options }), {})
   },
   methods: {
@@ -127,7 +126,7 @@ export default {
         productTitle: this.product.title,
         variantTitle: variant.title,
         variantId: variant.id,
-        price: variant.priceV2,
+        price: variant.price,
         image: variant.image
       }
       await this.$store.commit('addToCart', payload)
@@ -141,48 +140,38 @@ export default {
 </script>
 
 <page-query>
-query Product ($handle: String!) {
-  shopify {
-    product: productByHandle(handle: $handle) {
+query Product ($id: ID!) {
+  shopifyProduct (id: $id) {
+    id
+    descriptionHtml
+    title
+    tags
+    images(limit: 4) {
       id
-      descriptionHtml
+      altText
+      src: transformedSrc(maxWidth: 600, maxHeight: 400, crop: CENTER)
+      thumbnail: transformedSrc(maxWidth: 150, maxHeight: 150, crop: CENTER)
+    }
+    options {
+      id
+      name
+      values
+    }
+    variants {
+      id
       title
-      tags
-      images(first: 4) {
-        edges {
-          node {
-            id
-            altText
-            src: transformedSrc(maxWidth: 600, maxHeight: 400, crop: CENTER)
-            thumbnail: transformedSrc(maxWidth: 150, maxHeight: 150, crop: CENTER)
-          }
-        }
+      price {
+        amount
+        currencyCode
       }
-      options {
-        id
+      selectedOptions {
         name
-        values
+        value
       }
-      variants(first: 10) {
-        edges {
-          node {
-            id
-            title
-            priceV2 {
-              amount
-              currencyCode
-            }
-            selectedOptions {
-              name
-              value
-            }
-            image {
-              id
-              altText
-              thumbnail: transformedSrc(maxWidth: 150, maxHeight: 150, crop: CENTER)
-            }
-          }
-        }
+      image {
+        id
+        altText
+        thumbnail: transformedSrc(maxWidth: 150, maxHeight: 150, crop: CENTER)
       }
     }
   }

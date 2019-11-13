@@ -8,15 +8,15 @@
       <br>
       <div class="columns is-multiline">
         <div
-          v-for="({ node: product }) in products"
+          v-for="product in collection.products"
           :key="product.id"
           class="column is-4">
           <div class="card">
             <div class="card-image">
               <figure class="image is-4by3">
                 <img
-                  :src="product.images.edges[0].node.src"
-                  :alt="product.images.edges[0].node.altText || product.title">
+                  :src="product.images[0].src"
+                  :alt="product.images[0].altText || product.title">
               </figure>
             </div>
             <div class="card-content has-text-left">
@@ -37,7 +37,7 @@
               <div class="field is-grouped is-grouped-right">
                 <div class="control">
                   <g-link
-                    :to="`products/${product.handle}`"
+                    :to="`product/${product.handle}`"
                     class="button is-primary is-outlined">
                     View Product
                   </g-link>
@@ -54,8 +54,7 @@
 <script>
 export default {
   computed: {
-    collection () { return this.$page.shopify.collection },
-    products () { return this.collection.products.edges }
+    collection () { return this.$page.shopifyCollection }
   },
   methods: {
     formatCurrency ({ currencyCode, amount }) {
@@ -66,36 +65,26 @@ export default {
 </script>
 
 <page-query>
-query Collection ($handle: String!) {
-  shopify {
-    collection: collectionByHandle (handle: $handle) {
+query Collection ($id: ID!) {
+  shopifyCollection (id: $id) {
+    id
+    title
+    descriptionHtml
+    products {
       id
       title
+      handle
       descriptionHtml
-      products (first: 100) {
-        edges {
-          node {
-            id
-            title
-            handle
-            descriptionHtml
-            priceRange {
-              minVariantPrice {
-                currencyCode
-                amount
-              }
-            }
-            images (first: 1) {
-              edges {
-                node {
-                  id
-                  altText
-                  src: transformedSrc (maxWidth: 400, maxHeight: 300, crop: CENTER)
-                }
-              }
-            }
-          }
+      priceRange {
+        minVariantPrice {
+          currencyCode
+          amount
         }
+      }
+      images (limit: 1) {
+        id
+        altText
+        src: transformedSrc (maxWidth: 400, maxHeight: 300, crop: CENTER)
       }
     }
   }
