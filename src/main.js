@@ -18,7 +18,7 @@ import '~/styles/main.scss'
 import 'typeface-karla'
 import 'typeface-prata'
 
-export default function (Vue, { appOptions }) {
+export default function (Vue, { appOptions, isClient, router }) {
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout)
   // Import global plugins
@@ -46,7 +46,8 @@ export default function (Vue, { appOptions }) {
   // Create Vuex store
   appOptions.store = new Vuex.Store({
     state: {
-      cart: []
+      cart: [],
+      isAuthenticated: false
     },
     mutations: {
       addToCart: (state, newItem) => {
@@ -58,7 +59,19 @@ export default function (Vue, { appOptions }) {
       removeFromCart: (state, itemId) => {
         const updatedCart = state.cart.filter(item => item.variantId !== itemId)
         state.cart = updatedCart
+      },
+      setIsAuthenticated: (state, isAuthenticated) => {
+        state.isAuthenticated = isAuthenticated
       }
     }
   })
+
+  if (isClient) {
+    router.beforeEach((to, from, next) => {
+      const tokenExists = !!sessionStorage.getItem('store-token')
+      if (to.path.includes('/account') && !tokenExists) {
+        next('/login')
+      } else next()
+    })
+  }
 }
