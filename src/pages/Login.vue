@@ -74,11 +74,19 @@ export default {
       const user = this.user
       this.isLoading = true
       try {
-        const { data: { customerAccessTokenCreate: authResult } } = await this.$apollo.mutate({
+        const { data: { customerAccessTokenCreate } } = await this.$apollo.mutate({
           mutation: LoginCustomer,
           variables: { input: user }
         })
-        sessionStorage.setItem('store-token', authResult.accessToken)
+        const { customerAccessToken, customerUserErrors } = customerAccessTokenCreate
+        if (customerUserErrors.length) {
+          const [firstError] = customerUserErrors
+          return this.$notify({
+            title: firstError.message,
+            type: 'danger'
+          })
+        }
+        sessionStorage.setItem('store-token', customerAccessToken.accessToken)
         await this.$store.commit('setIsAuthenticated', true)
         this.$router.push('account')
       } catch (error) {
