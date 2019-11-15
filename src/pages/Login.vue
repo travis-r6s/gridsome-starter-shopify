@@ -57,8 +57,7 @@
 </template>
 
 <script>
-// Queries
-import { LoginCustomer } from '@/graphql/Auth.js'
+import gql from 'graphql-tag'
 
 export default {
   name: 'Login',
@@ -75,7 +74,19 @@ export default {
       this.isLoading = true
       try {
         const { data: { customerAccessTokenCreate } } = await this.$apollo.mutate({
-          mutation: LoginCustomer,
+          mutation: gql`mutation customerAccessTokenCreate($input: CustomerAccessTokenCreateInput!) {
+            customerAccessTokenCreate(input: $input) {
+              customerAccessToken {
+                accessToken
+                expiresAt
+              }
+              customerUserErrors {
+                code
+                field
+                message
+              }
+            }
+          }`,
           variables: { input: user }
         })
         const { customerAccessToken, customerUserErrors } = customerAccessTokenCreate
