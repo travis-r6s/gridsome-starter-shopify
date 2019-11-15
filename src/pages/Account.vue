@@ -84,7 +84,6 @@ export default {
       }`,
       variables () {
         const accessToken = sessionStorage.getItem('store-token')
-        console.log(accessToken)
         return { accessToken }
       }
     }
