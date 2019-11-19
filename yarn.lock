@@ -4433,10 +4433,10 @@ graphql@^14.4.2, graphql@^14.5.8:
   dependencies:
     iterall "^1.2.2"
 
-gridsome-source-shopify-v2@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/gridsome-source-shopify-v2/-/gridsome-source-shopify-v2-0.1.0.tgz#c6f711bb86b669a86a66dcdb5dfa17fc9e95c307"
-  integrity sha512-srwgWl37uWbaMgqxXUeuoxuXuPLVbfZvShA40n78rGSCBr/nCc7vWCLDcnT0BBhZ1Jdx9/ZSZ4uwgKLUL55+OQ==
+gridsome-source-shopify-v2@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/gridsome-source-shopify-v2/-/gridsome-source-shopify-v2-0.1.2.tgz#1e50d5ce20a3e86f86ca11d06a02df6caa2417f4"
+  integrity sha512-KNRNCiYwcX4I52vOE4iFCYreXjmmV368o07NU3Ku1bW4499SZl3DB9ZbTQE2dqnKyu5iMkJhlMfqbcmPDeEEmw==
   dependencies:
     camelcase "^5.3.1"
     graphql-request "^1.8.2"
