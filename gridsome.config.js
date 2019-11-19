@@ -16,7 +16,7 @@ module.exports = {
   },
   plugins: [
     {
-      use: 'gridsome-source-shopify',
+      use: 'gridsome-source-shopify-v2',
       options: {
         storeName: process.env.GRIDSOME_SHOPIFY_STOREFRONT,
         storefrontToken: process.env.GRIDSOME_SHOPIFY_STOREFRONT_TOKEN
