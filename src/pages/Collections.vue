@@ -53,25 +53,23 @@
 <script>
 export default {
   computed: {
-    collections () { return this.$page.shopify.collections.edges }
+    collections () { return this.$page.allShopifyCollection.edges }
   }
 }
 </script>
 
 <page-query>
 query ShopifyProducts {
-  shopify {
-    collections (first: 100) {
-      edges {
-        node {
-          id
-          handle
-          title
-          descriptionHtml
-          image {
-            altText
-            src: transformedSrc(maxWidth: 400, maxHeight: 300, crop: CENTER)
-          }
+  allShopifyCollection (limit: 100) {
+    edges {
+      node {
+        id
+        handle
+        title
+        descriptionHtml
+        image {
+          altText
+          src: transformedSrc(maxWidth: 400, maxHeight: 300, crop: CENTER)
         }
       }
     }
