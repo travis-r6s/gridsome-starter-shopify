@@ -13,7 +13,7 @@ npm install -g @gridsome/cli # or
 yarn global add @gridsome/cli
 ```
 
-## Create Projects
+## Create Project
 
 You can either directly download this repository, or use Gridsome's CLI to download and install dependencies for you.
 
