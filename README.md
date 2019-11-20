@@ -2,7 +2,7 @@
 
 # Shopify starter for Gridsome
 
-This is a boilerplate starter, aiming to showcase how Gridsome and Shopify can work together, to create an amazingly fast shopping experience for consumers.
+This is a boilerplate starter, aiming to showcase how Gridsome and Shopify can work together, to create an amazingly fast shopping experience for consumers. [View Demo](https://gridsome-shopify-starter.netlify.com)
 
 ## Installation
 
