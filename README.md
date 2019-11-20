@@ -33,6 +33,7 @@ You will need to add your Storefront API shop name (https://\<shop-name\>.myshop
 I also recommend you add some collections in Shopify to best show off this starter.
 
 ```
+# Note env's are prefixed with GRIDSOME_ to make them available to apollo client side
 GRIDSOME_SHOPIFY_STOREFRONT=<shop name>
 GRIDSOME_SHOPIFY_STOREFRONT_TOKEN=<storefront token>
 ```
