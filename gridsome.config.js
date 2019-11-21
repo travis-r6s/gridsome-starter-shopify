@@ -21,6 +21,19 @@ module.exports = {
         storeName: process.env.GRIDSOME_SHOPIFY_STOREFRONT,
         storefrontToken: process.env.GRIDSOME_SHOPIFY_STOREFRONT_TOKEN
       }
+    },
+    {
+      use: 'gridsome-plugin-flexsearch',
+      options: {
+        collections: [
+          {
+            typeName: 'ShopifyProduct',
+            indexName: 'Product',
+            fields: ['title', 'handle', 'description']
+          }
+        ],
+        searchFields: ['title', 'handle']
+      }
     }
   ]
 }
