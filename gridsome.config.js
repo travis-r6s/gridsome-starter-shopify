@@ -25,6 +25,9 @@ module.exports = {
     {
       use: 'gridsome-plugin-flexsearch',
       options: {
+        flexsearch: {
+          profile: 'fast'
+        },
         collections: [
           {
             typeName: 'ShopifyProduct',
