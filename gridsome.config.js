@@ -30,6 +30,11 @@ module.exports = {
             typeName: 'ShopifyProduct',
             indexName: 'Product',
             fields: ['title', 'handle', 'description']
+          },
+          {
+            typeName: 'ShopifyCollection',
+            indexName: 'Collection',
+            fields: ['title', 'handle', 'description']
           }
         ],
         searchFields: ['title', 'handle']
