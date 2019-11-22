@@ -26,7 +26,7 @@ module.exports = {
       use: 'gridsome-plugin-flexsearch',
       options: {
         flexsearch: {
-          profile: 'fast'
+          profile: 'match'
         },
         collections: [
           {
