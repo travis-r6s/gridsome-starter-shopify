@@ -26,12 +26,14 @@
           <h3 class="title is-family-secondary">
             {{ product.title }}
           </h3>
-          <h5 class="subtitle">
+          <h5
+            v-if="currentVariant"
+            class="subtitle">
             {{ formatCurrency(currentVariant.price) }}
           </h5>
           <div
-            v-html="product.descriptionHtml"
-            class="content" />
+            class="content"
+            v-html="product.descriptionHtml" />
           <div
             v-for="option in productOptions"
             :key="option.id"
@@ -74,9 +76,9 @@
               </div>
               <div class="add-to-cart">
                 <button
+                  class="button is-primary"
                   @click="addToCart"
-                  @keyup.enter="addToCart"
-                  class="button is-primary">
+                  @keyup.enter="addToCart">
                   Add To Cart
                 </button>
               </div>
@@ -109,6 +111,12 @@ export default {
         )
       )
       return matchedVariant
+    }
+  },
+  watch: {
+    $route (to, from) {
+      const [firstVariant] = this.product.variants
+      this.selectedOptions = firstVariant.selectedOptions.reduce((options, { name, value }) => ({ [ name ]: value, ...options }), {})
     }
   },
   created () {
