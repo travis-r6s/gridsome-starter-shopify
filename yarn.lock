@@ -4454,10 +4454,10 @@ gridsome-plugin-flexsearch@^0.1.7:
     flexsearch "^0.6.32"
     regenerator-runtime "^0.13.3"
 
-gridsome-source-shopify@^0.1.7:
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/gridsome-source-shopify/-/gridsome-source-shopify-0.1.7.tgz#206a36591741b9a2c9f15bc2ce326da5906904b0"
-  integrity sha512-0wX/BsM6oONu/Af769skaiulkenv7F9tIeDUb5+Vk0M/RXy9jqu5ARVmZiE150D8l7pdYfOw5OsxD+jel51bng==
+gridsome-source-shopify@^0.1.8:
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/gridsome-source-shopify/-/gridsome-source-shopify-0.1.8.tgz#6a8d824f62d5569c3b88332d0c34105f5a2cf472"
+  integrity sha512-Ro0ywZyCPl4G/JX7pdiosZyvaJgcCo2dfeGLNZm1V4j44z1lY7HLJgCvTxRrsIzamZRWoxArIom3DoorUG/FHg==
   dependencies:
     camelcase "^5.3.1"
     graphql-request "^1.8.2"
