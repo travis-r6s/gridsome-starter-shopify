@@ -59,7 +59,7 @@
                     {{ product.title }}
                   </p>
                   <p class="subtitle is-6">
-                    {{ formatCurrency(product.priceRange.minVariantPrice) }}
+                    {{ product.priceRange.minVariantPrice.amount }}
                   </p>
                 </div>
               </div>
@@ -92,11 +92,6 @@ export default {
   computed: {
     collection () { return this.$page.allShopifyCollection.edges.length && this.$page.allShopifyCollection.edges[ 0 ].node },
     featuredProducts () { return this.$page.allShopifyProduct.edges }
-  },
-  methods: {
-    formatCurrency ({ currencyCode, amount }) {
-      return new Intl.NumberFormat('en-GB', { style: 'currency', currency: currencyCode }).format(amount)
-    }
   }
 }
 </script>
@@ -126,8 +121,7 @@ query ShopifyProducts {
         descriptionHtml
         priceRange {
           minVariantPrice {
-            currencyCode
-            amount
+            amount(format: true)
           }
         }
         images (limit: 1) {

@@ -26,7 +26,7 @@
                     {{ product.title }}
                   </p>
                   <p class="subtitle is-6">
-                    {{ formatCurrency(product.priceRange.minVariantPrice) }}
+                    {{ product.priceRange.minVariantPrice.amount }}
                   </p>
                 </div>
               </div>
@@ -55,11 +55,6 @@
 export default {
   computed: {
     collection () { return this.$page.shopifyCollection }
-  },
-  methods: {
-    formatCurrency ({ currencyCode, amount }) {
-      return new Intl.NumberFormat('en-GB', { style: 'currency', currency: currencyCode }).format(amount)
-    }
   }
 }
 </script>
@@ -77,8 +72,7 @@ query Collection ($id: ID!) {
       descriptionHtml
       priceRange {
         minVariantPrice {
-          currencyCode
-          amount
+          amount(format: true, currency: "GBP")
         }
       }
       images (limit: 1) {

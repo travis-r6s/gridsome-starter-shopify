@@ -29,7 +29,7 @@
           <h5
             v-if="currentVariant"
             class="subtitle">
-            {{ formatCurrency(currentVariant.price) }}
+            {{ currentVariant.price.amount }}
           </h5>
           <div
             class="content"
@@ -124,9 +124,6 @@ export default {
     this.selectedOptions = firstVariant.selectedOptions.reduce((options, { name, value }) => ({ [ name ]: value, ...options }), {})
   },
   methods: {
-    formatCurrency ({ currencyCode, amount }) {
-      return new Intl.NumberFormat('en-GB', { style: 'currency', currency: currencyCode }).format(amount)
-    },
     async addToCart () {
       const variant = this.currentVariant
       const payload = {
@@ -169,8 +166,7 @@ query Product ($id: ID!) {
       id
       title
       price {
-        amount
-        currencyCode
+        amount(format: true)
       }
       selectedOptions {
         name
