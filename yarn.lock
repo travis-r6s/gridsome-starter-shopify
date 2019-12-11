@@ -4473,10 +4473,10 @@ graphql@^14.4.2, graphql@^14.5.8:
   dependencies:
     iterall "^1.2.2"
 
-gridsome-plugin-flexsearch@^0.1.8:
-  version "0.1.8"
-  resolved "https://registry.yarnpkg.com/gridsome-plugin-flexsearch/-/gridsome-plugin-flexsearch-0.1.8.tgz#13cc9dda6163598b438090cf9ac5bfeaf756054a"
-  integrity sha512-ey13FrMjnSDgAou6sEFVrhvW1AxfRi6Rs9z+laWoyAjIHeYBTNfm2+/l5HGnuZ3miybh+9d9IIY4UJrJvQ3FrQ==
+gridsome-plugin-flexsearch@^0.1.9:
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/gridsome-plugin-flexsearch/-/gridsome-plugin-flexsearch-0.1.9.tgz#b2997466a4ab6b4c3d25d9ee6cbc775f9b7b5e2a"
+  integrity sha512-QQ3QNcy1EOXVqUCUX+vFy//y/UliMVObMFixc6wGNVoiUI2zfOjwIH53eNdSHOXFCrKodVCnHARzgZYGkgGVxg==
   dependencies:
     core-js "2"
     flexsearch "^0.6.32"
