@@ -11,6 +11,10 @@
 <script>
 import Navbar from '@/components/Navbar'
 export default {
-  components: { Navbar }
+  components: { Navbar },
+  async created () {
+    const isAuthenticated = !!sessionStorage.getItem('store-token')
+    await this.$store.commit('setIsAuthenticated', isAuthenticated)
+  }
 }
 </script>

@@ -75,6 +75,18 @@
           </div>
         </div>
         <g-link
+          v-if="isAuthenticated"
+          to="/account"
+          class="navbar-item">
+          Account
+        </g-link>
+        <g-link
+          v-else
+          to="/login"
+          class="navbar-item">
+          Login
+        </g-link>
+        <g-link
           to="/cart"
           class="navbar-item">
           Cart - {{ cart.length }} Item{{ cart.length !== 1 ? 's' : '' }}
@@ -90,6 +102,7 @@ export default {
     searchTerm: ''
   }),
   computed: {
+    isAuthenticated () { return this.$store.state.isAuthenticated },
     cart () { return this.$store.state.cart },
     searchResults () {
       const searchTerm = this.searchTerm
