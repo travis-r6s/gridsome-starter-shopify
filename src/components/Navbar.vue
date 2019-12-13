@@ -102,7 +102,6 @@ export default {
     searchTerm: ''
   }),
   computed: {
-    isAuthenticated () { return this.$store.state.isAuthenticated },
     cart () { return this.$store.state.cart },
     searchResults () {
       const searchTerm = this.searchTerm
