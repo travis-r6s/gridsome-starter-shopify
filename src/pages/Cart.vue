@@ -37,16 +37,29 @@
             </td>
             <td>{{ item.qty }}</td>
             <td>{{ totalPrice(item) }}</td>
-            <td width="50">
+            <td
+              width="200"
+              class="has-text-right">
               <button
+                class="delete is-danger"
                 @click="removeItem(item.variantId)"
-                @keyup="removeItem(item.variantId)"
-                class="delete is-danger">
+                @keyup="removeItem(item.variantId)">
                 <small>Remove</small>
               </button>
             </td>
           </tr>
         </tbody>
+        <tfoot v-if="cart.length">
+          <tr>
+            <th />
+            <th />
+            <th />
+            <th />
+            <th class="has-text-right">
+              <p>Cart Total: {{ cartTotal }}</p>
+            </th>
+          </tr>
+        </tfoot>
       </table>
       <br>
       <form
@@ -102,7 +115,11 @@ export default {
   },
   data: () => ({ email: '', isLoading: false }),
   computed: {
-    cart () { return this.$store.state.cart }
+    cart () { return this.$store.state.cart },
+    cartTotal () {
+      const total = this.cart.reduce((total, item) => total.add(currency(item.price.amount).multiply(item.qty)), currency(0, { formatWithSymbol: true, symbol: '£' }))
+      return total.format()
+    }
   },
   methods: {
     totalPrice ({ qty, price }) {
