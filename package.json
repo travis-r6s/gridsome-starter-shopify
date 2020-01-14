@@ -7,11 +7,9 @@
     "explore": "gridsome explore"
   },
   "dependencies": {
-    "@gridsome/source-graphql": "^0.1.0",
     "apollo-boost": "^0.4.7",
     "bulma": "^0.8.0",
     "currency.js": "^1.2.2",
-    "graphql": "^14.5.8",
     "graphql-tag": "^2.10.1",
     "gridsome": "^0.7.12",
     "gridsome-plugin-flexsearch": "^0.1.10",
