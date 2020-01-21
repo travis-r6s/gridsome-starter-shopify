@@ -106,9 +106,7 @@ export default {
     productOptions () { return this.product.options.filter(({ name }) => name !== 'Title') },
     currentVariant () {
       const matchedVariant = this.product.variants.find(variant =>
-        variant.selectedOptions.every(
-          ({ name, value }) => value === this.selectedOptions[ name ]
-        )
+        variant.selectedOptions.every(({ name, value }) => value === this.selectedOptions[ name ])
       )
       return matchedVariant
     }
@@ -119,7 +117,7 @@ export default {
       this.selectedOptions = firstVariant.selectedOptions.reduce((options, { name, value }) => ({ [ name ]: value, ...options }), {})
     }
   },
-  created () {
+  mounted () {
     const [firstVariant] = this.product.variants
     this.selectedOptions = firstVariant.selectedOptions.reduce((options, { name, value }) => ({ [ name ]: value, ...options }), {})
   },
