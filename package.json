@@ -12,7 +12,7 @@
     "currency.js": "^1.2.2",
     "graphql-tag": "^2.10.3",
     "gridsome": "^0.7.14",
-    "gridsome-plugin-flexsearch": "^0.1.19",
+    "gridsome-plugin-flexsearch": "^0.1.20",
     "gridsome-source-shopify": "^0.1.12",
     "isomorphic-fetch": "^2.2.1",
     "typeface-karla": "^0.0.72",
