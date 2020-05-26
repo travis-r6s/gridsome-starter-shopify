@@ -66,7 +66,7 @@
           </div>
           <div class="navbar-dropdown">
             <g-link
-              v-for="result in searchResults"
+              v-for="({ node: result}) in searchResults"
               :key="result.id"
               :to="result.path"
               class="navbar-item">
