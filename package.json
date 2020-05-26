@@ -7,7 +7,7 @@
     "explore": "gridsome explore"
   },
   "dependencies": {
-    "apollo-boost": "^0.4.8",
+    "apollo-boost": "0.4.9-test.0",
     "bulma": "^0.8.2",
     "currency.js": "^1.2.2",
     "graphql-tag": "^2.10.3",
@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.0.0",
+    "eslint": "^7.1.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-config-travisreynolds-vue": "1.1.8",
     "eslint-plugin-import": "^2.20.2",
