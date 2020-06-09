@@ -165,7 +165,7 @@ export default {
         this.isLoading = false
         console.error(error)
         this.$notify({
-          title: 'Whoops...',
+          title: error,
           type: 'danger',
           message: 'Something went wrong - please try again.'
         })
