@@ -11,7 +11,7 @@
     "bulma": "^0.9.0",
     "currency.js": "^1.2.2",
     "graphql-tag": "^2.10.3",
-    "gridsome": "^0.7.17",
+    "gridsome": "^0.7.18",
     "gridsome-plugin-flexsearch": "^1.0.1-beta",
     "gridsome-source-shopify": "^0.1.13",
     "isomorphic-fetch": "^2.2.1",
@@ -22,17 +22,8 @@
     "vuex": "^3.5.1"
   },
   "devDependencies": {
-    "babel-eslint": "^10.1.0",
-    "eslint": "^7.1.0",
-    "eslint-config-standard": "^14.1.1",
-    "eslint-config-travisreynolds-vue": "1.1.8",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1",
-    "eslint-plugin-vue": "^6.2.2",
-    "eslint-plugin-vue-a11y": "^0.0.31",
+    "eslint-config-travisreynolds-vue": "^1.1.8",
     "node-sass": "^4.14.1",
-    "sass-loader": "^8.0.2"
+    "sass-loader": "^9.0.2"
   }
 }
