@@ -44,7 +44,7 @@
           Contact
         </g-link>
         <g-link
-          to="/"
+          to="/about"
           class="navbar-item">
           About
         </g-link>
