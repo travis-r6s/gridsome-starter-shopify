@@ -8,22 +8,22 @@
   },
   "dependencies": {
     "apollo-boost": "0.4.9",
-    "bulma": "^0.9.0",
+    "bulma": "^0.9.1",
     "currency.js": "^2.0.3",
     "graphql-tag": "^2.11.0",
     "gridsome": "^0.7.21",
-    "gridsome-plugin-flexsearch": "^1.0.4",
-    "gridsome-source-shopify": "^0.2.4",
+    "gridsome-plugin-flexsearch": "^1.0.5",
+    "gridsome-source-shopify": "^0.2.6",
     "isomorphic-fetch": "^3.0.0",
-    "typeface-karla": "^0.0.72",
-    "typeface-prata": "^0.0.72",
-    "vue-apollo": "^3.0.4",
+    "typeface-karla": "^1.1.13",
+    "typeface-prata": "^1.1.13",
+    "vue-apollo": "^3.0.5",
     "vue-notification": "^1.3.20",
     "vuex": "^3.5.1"
   },
   "devDependencies": {
     "eslint-config-travisreynolds-vue": "^1.2.0",
     "node-sass": "^4.14.1",
-    "sass-loader": "^10.0.2"
+    "sass-loader": "^10.0.4"
   }
 }
