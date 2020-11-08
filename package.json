@@ -11,7 +11,7 @@
     "bulma": "^0.9.1",
     "currency.js": "^2.0.3",
     "graphql-tag": "^2.11.0",
-    "gridsome": "^0.7.21",
+    "gridsome": "^0.7.22",
     "gridsome-plugin-flexsearch": "^1.0.5",
     "gridsome-source-shopify": "^0.2.6",
     "isomorphic-fetch": "^3.0.0",
