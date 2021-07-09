@@ -8,9 +8,9 @@
   },
   "dependencies": {
     "apollo-boost": "0.4.9",
-    "bulma": "^0.9.2",
+    "bulma": "^0.9.3",
     "currency.js": "^2.0.4",
-    "graphql-tag": "^2.12.4",
+    "graphql-tag": "^2.12.5",
     "gridsome": "^0.7.23",
     "gridsome-plugin-flexsearch": "^2.0.1",
     "gridsome-source-shopify": "^0.2.6",
@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "eslint-config-travisreynolds-vue": "^1.2.0",
-    "node-sass": "^6.0.0",
+    "node-sass": "^6.0.1",
     "sass-loader": "^10.2.0"
   }
 }
