@@ -66,9 +66,9 @@
           </div>
           <div class="navbar-dropdown">
             <g-link
-              v-for="({ node: result, path }) in searchResults"
+              v-for="({ node: result }) in searchResults"
               :key="result.id"
-              :to="path"
+              :to="result.path"
               class="navbar-item">
               {{ result.title }}
             </g-link>
@@ -99,7 +99,7 @@ export default {
     searchResults () {
       const searchTerm = this.searchTerm
       if (searchTerm.length < 3) return []
-      return this.$search.search({ query: searchTerm, limit: 5, suggest: true })
+      return this.$search.search({ query: searchTerm, limit: 8, suggest: true })
     }
   },
   watch: {
