@@ -48,6 +48,7 @@
             <div class="card-image">
               <figure class="image is-4by3">
                 <img
+                  v-if="product.images.length"
                   :src="product.images[0].src"
                   :alt="product.images[0].altText || product.title">
               </figure>

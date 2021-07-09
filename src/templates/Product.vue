@@ -5,13 +5,14 @@
         <div class="column is-three-fifths">
           <figure class="image">
             <img
+              v-if="product.images.length"
               :src="product.images[0].src"
               :alt="product.images[0].altText || product.title">
           </figure>
           <br>
           <div class="columns">
             <div
-              v-for="({ node: image }) in product.images.edges"
+              v-for="image in product.images"
               :key="image.id"
               class="column is-3">
               <figure class="image is-square">
