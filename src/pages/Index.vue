@@ -11,8 +11,8 @@
                 Our Core Collection
               </h1>
               <div
-                v-html="collection.descriptionHtml"
-                class="content" />
+                class="content"
+                v-html="collection.descriptionHtml" />
               <g-link
                 :to="`collection/${collection.handle}`"
                 class="button">
@@ -66,8 +66,8 @@
               </div>
 
               <div
-                v-html="product.descriptionHtml"
-                class="content" />
+                class="content"
+                v-html="product.descriptionHtml" />
               <div class="field is-grouped is-grouped-right">
                 <div class="control">
                   <g-link
