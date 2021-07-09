@@ -15,6 +15,7 @@
             <div class="card-image">
               <figure class="image is-4by3">
                 <img
+                  v-if="product.images.length"
                   :src="product.images[0].src"
                   :alt="product.images[0].altText || product.title">
               </figure>
@@ -32,8 +33,8 @@
               </div>
 
               <div
-                v-html="product.descriptionHtml"
-                class="content" />
+                class="content"
+                v-html="product.descriptionHtml" />
               <div class="field is-grouped is-grouped-right">
                 <div class="control">
                   <g-link
