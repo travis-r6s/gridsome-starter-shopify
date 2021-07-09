@@ -113,16 +113,18 @@ export default {
     }
   },
   watch: {
-    $route (to, from) {
-      const [firstVariant] = this.product.variants
-      this.selectedOptions = firstVariant.selectedOptions.reduce((options, { name, value }) => ({ [ name ]: value, ...options }), {})
+    '$route.fullPath': {
+      immediate: true,
+      handler () {
+        this.setInitialSelectedOptions()
+      }
     }
   },
-  mounted () {
-    const [firstVariant] = this.product.variants
-    this.selectedOptions = firstVariant.selectedOptions.reduce((options, { name, value }) => ({ [ name ]: value, ...options }), {})
-  },
   methods: {
+    setInitialSelectedOptions () {
+      const [firstVariant] = this.product.variants
+      this.selectedOptions = firstVariant.selectedOptions.reduce((options, { name, value }) => ({ [ name ]: value, ...options }), {})
+    },
     async addToCart () {
       const variant = this.currentVariant
       const payload = {
