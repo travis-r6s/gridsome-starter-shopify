@@ -5,7 +5,7 @@ This is a boilerplate starter, aiming to showcase how Gridsome and Shopify can w
 This starter uses a source plugin ([`gridsome-source-shopify`](https://gridsome.org/plugins/gridsome-source-shopify)) to pull data from Shopify's Storefront API, and load it into Gridsome's data store - which you can then use to create pages (note that this only runs at build time).
 It also uses the [Vue Apollo](https://apollo.vuejs.org) plugin client-side, to send queries/mutations (i.e. `createCheckout`) to the [Storefront API](https://help.shopify.com/en/api/storefront-api) when running in the browser.
 
-> Looking for more? https://github.com/thetre97/gridsome-starter-shopify-advanced
+> Looking for more? https://github.com/travis-r6s/gridsome-starter-shopify-advanced
 
 ## Shopify Setup
 
@@ -27,12 +27,12 @@ You can either directly download this repository, or use Gridsome's CLI to downl
 
 ```bash
 # Clone repository
-git clone https://github.com/thetre97/gridsome-starter-shopify.git
+git clone https://github.com/travis-r6s/gridsome-starter-shopify.git
 npm install # or
 yarn install
 
 # Download with CLI
-gridsome create my-gridsome-site thetre97/gridsome-starter-shopify
+gridsome create my-gridsome-site travis-r6s/gridsome-starter-shopify
 ```
 
 ## Developing

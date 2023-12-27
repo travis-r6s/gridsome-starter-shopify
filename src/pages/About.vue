@@ -10,7 +10,7 @@
         <p>This is the Shopify Starter for Gridsome by
           <a href="https://travisreynolds.dev/">Travis Reynolds</a>.
         </p>
-        <p>Source code: <a href="https://github.com/thetre97/gridsome-starter-shopify">Github</a></p>
+        <p>Source code: <a href="https://github.com/travis-r6s/gridsome-starter-shopify">Github</a></p>
       </div>
     </div>
   </Layout>
